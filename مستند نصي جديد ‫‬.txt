@@ -1,0 +1,55 @@
+alter system set DB_RECOVERY_FILE_DEST_SIZE = 3G;
+
+
+-Alter system set DB_RECOVERY_FILE_DEST='D:\app\OK\fast_recovery_area';
+
+
+backup current controlfile;
+
+-shutdown abort
+
+
+-alter database mount;
+
+RMAN TARGET /
+
+SHOW ALL;
+
+BACKUP DATABASE;
+
+-shutdown immediate
+
+alter database archivelog;
+
+alter database open;
+
+SHUTDOWN IMMEDIATE
+STARTUP MOUNT
+ALTER DATABASE ARCHIVELOG;
+alter database open ;
+RMAN> STARTUP FORCE MOUNT;
+RMAN> RESTORE DATABASE;
+RMAN> RECOVER DATABASE;
+RMAN> ALTER DATABASE OPEN;
+EXIT
+
+startup mount
+
+-SELECT LOG_MODE FROM V$DATABASE;
+
+ALTER SYSTEM SET LOG_ARCHIVE_DEST_1='LOCATION=D:\app\ARCHIVE\' SCOPE=BOTH;
+
+select status from v$instance;
+
+list backup of database;
+
+BACKUP AS COPY DATABASE;
+
+BACKUP SPFILE;
+
+
+
+
+
+
+
